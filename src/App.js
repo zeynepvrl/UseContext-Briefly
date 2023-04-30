@@ -1,25 +1,23 @@
-import logo from './logo.svg';
 import './App.css';
+import AuthContext from './context/auth-context';
+import Auth from './Auth';
+import { useState } from 'react';
 
 function App() {
+  const [logi, setlogi] = useState(false)
+  const authlogin=()=>{
+    setlogi(true);
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <AuthContext.Provider value={{status:logi , login:authlogin}}>
+        <Auth/>          
+      </AuthContext.Provider>
     </div>
   );
 }
 
 export default App;
+// import ve provider işlemleri index.js de App componentine yapılsaydı, veriler bütün projede doğrudan erişilebilir olurdu
+// Şimdilik Context in geçerli olduğu tek component Auth.js
+// Auth.j de context i kullanmak için useContext oluşturulur
