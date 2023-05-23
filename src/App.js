@@ -1,7 +1,7 @@
 import './App.css';
-import AuthContext from './context/auth-context';
-import Auth from './Auth';
-import { useState } from 'react';
+import AuthContext from './context/auth-context';          //auth-context context yapısının oluşturulduğu, paylaşılacak propsların şekillendirildiği,belirtildiği yer,
+import Auth from './Auth';                                 //App.js bu şekillendirilen propslara değer atanılan, işlevlerinin belirlendiği ve context yapısını kullacak komponent için provider edildiği yer 
+import { useState } from 'react';                          //Auth.js bu propsların kullanıldığı yer, html etiketleri içersinde örneğin
 
 function App() {
   const [logi, setlogi] = useState(false)
